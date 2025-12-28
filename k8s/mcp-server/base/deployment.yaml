@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deutsche-gesetze-mcp-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deutsche-gesetze-mcp-server
+  template:
+    metadata:
+      labels:
+        app: deutsche-gesetze-mcp-server
+    spec:
+      containers:
+        - name: deutsche-gesetze-mcp-server
+          image: deutsche-gesetze-mcp-server
+          ports:
+            - containerPort: 8001
