@@ -17,3 +17,10 @@ spec:
           image: deutsche-gesetze-mcp-server
           ports:
             - containerPort: 8001
+          volumeMounts:
+            - name: markdown-data
+              mountPath: /app/gesetze
+      volumes:
+        - name: markdown-data
+          persistentVolumeClaim:
+            claimName: deutsche-gesetze-mcp-markdown
