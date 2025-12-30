@@ -6,6 +6,12 @@ set -e
 REPO_URL="https://github.com/bundestag/gesetze-tools"
 DIR_NAME="gesetze-tools"
 
+# Data directory for result files
+if [ -z "${DATA_DIR}" ]; then
+    DATA_DIR="$PWD/markdown_data"
+fi
+mkdir -p $DATA_DIR
+
 # Clone the repository
 if [ -d "$DIR_NAME" ]; then
     echo "Directory '$DIR_NAME' already exists. Entering directory..."
@@ -41,5 +47,8 @@ python lawde.py loadall
 
 echo "Running lawdown.py convert laws laws_md..."
 python lawdown.py convert laws laws_md
+
+echo "Copying results to data directory..."
+cp -r laws_md/* $DATA_DIR/
 
 echo "Script execution completed successfully."
