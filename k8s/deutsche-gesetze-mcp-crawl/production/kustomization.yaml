@@ -6,5 +6,5 @@ resources:
 
 images:
   - name: deutsche-gesetze-mcp-crawl
-    newName: ghcr.io/troeger/deutsche-rechtsprechung-mcp/deutsche-gesetze-mcp-crawl
+    newName: ghcr.io/troeger/deutsche-gesetze-mcp/deutsche-gesetze-mcp-crawl
     newTag: "latest"
